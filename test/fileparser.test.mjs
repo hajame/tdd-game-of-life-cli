@@ -14,7 +14,7 @@ describe("Fileparser", () => {
       fileparser.parse();
     });
     it("it returns the same file", () => {
-      expect(fileparser.getY()).to.equal(3);
+      expect(fileparser.y).to.equal(3);
     });
   });
 });
