@@ -13,8 +13,14 @@ describe("Fileparser", () => {
       fileparser = getFileParser(3, 3, "3b$3b$3b!");
       fileparser.parse();
     });
-    it("it returns the same file", () => {
+    it("y is correct", () => {
       expect(fileparser.y).to.equal(3);
+    });
+    it("x is correct", () => {
+      expect(fileparser.x).to.equal(3);
+    });
+    it("pattern is correct", () => {
+      expect(fileparser.pattern).to.equal("3b$3b$3b!");
     });
   });
 });
