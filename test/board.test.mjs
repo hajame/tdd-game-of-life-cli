@@ -27,13 +27,18 @@ describe("Board", () => {
   });
   describe("Parse short form values", () => {
     beforeEach(() => {
-      board = getBoard(3, 3, "3b$3b$3b!");
+      board = getBoard(4, 3, "3bo$2o2b$3bo!");
     });
     it("board matrix has correct height", () => {
       expect(board.board.length).to.equal(3);
     });
-    it("board correct rows", () => {
-      expect(board.board[0].join("")).to.equal("bbb");
+    it("board matrix has correct width", () => {
+      expect(board.board[0].length).to.equal(4);
+    });
+    it("board has correct rows", () => {
+      expect(board.board[0].join("")).to.equal("bbbo");
+      expect(board.board[1].join("")).to.equal("oobb");
+      expect(board.board[2].join("")).to.equal("bbbo");
     });
   });
 });

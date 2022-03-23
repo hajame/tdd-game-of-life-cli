@@ -39,6 +39,26 @@ export class Board {
   }
 
   toLongForm(pattern) {
-    return pattern;
+    let result = "";
+    for (let a = 0; a < pattern.length; a++) {
+      const element = pattern[a];
+    }
+    for (let a = 0; a < pattern.length; a++) {
+      const char = pattern[a];
+      if (char == "!") {
+        result = result.concat(char);
+        break;
+      }
+      if (["$", "b", "o"].includes(char)) {
+        result = result.concat(char);
+        continue;
+      }
+      for (let i = 0; i < parseInt(char); i++) {
+        result = result.concat(pattern[a + 1]);
+      }
+      a++;
+    }
+
+    return result;
   }
 }
