@@ -25,4 +25,15 @@ describe("Board", () => {
       expect(board.board[0].length).to.equal(3);
     });
   });
+  describe("Parse short form values", () => {
+    beforeEach(() => {
+      board = getBoard(3, 3, "3b$3b$3b!");
+    });
+    it("board matrix has correct height", () => {
+      expect(board.board.length).to.equal(3);
+    });
+    it("board correct rows", () => {
+      expect(board.board[0].join("")).to.equal("bbb");
+    });
+  });
 });
