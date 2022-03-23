@@ -1,4 +1,5 @@
 import fs from "fs";
+import { Simulator } from "./simulator.mjs";
 
 let file;
 let iterations = process.argv[3];
@@ -9,4 +10,5 @@ try {
   console.log(err);
 }
 
-console.log(file, iterations);
+let simulator = new Simulator(file, iterations);
+console.log(simulator.simulate());
