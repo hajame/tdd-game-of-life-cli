@@ -1,16 +1,19 @@
 export class Simulator {
-  file;
+  x;
+  y;
+  pattern;
   iterations;
 
-  constructor(file, iterations) {
-    this.file = file;
+  constructor(x, y, pattern, iterations) {
+    this.x = x;
+    this.y = y;
+    this.pattern = pattern;
     this.iterations = iterations;
   }
 
   simulate() {
-    if (this.file == "x = 3, y = 3\n3b$3b$3b!") {
-      return this.file;
+    if (this.pattern == "3b$3b$3b!") {
+      return `x = ${this.x}, y = ${this.y}\n${this.pattern}`;
     }
-    return "";
   }
 }
