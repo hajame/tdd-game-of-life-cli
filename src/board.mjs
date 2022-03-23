@@ -25,6 +25,7 @@ export class Board {
         break;
       }
       result[y][x] = char;
+      x++;
     }
     return result;
   }
