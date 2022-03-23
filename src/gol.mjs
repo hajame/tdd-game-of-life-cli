@@ -12,3 +12,9 @@ try {
 
 let simulator = new Simulator(file, iterations);
 console.log(simulator.simulate());
+
+function outputFile() {
+  fs.writeFile(`output.rle`, simulator.simulate(), "utf8", function (err) {
+    if (err) return console.log(err);
+  });
+}
