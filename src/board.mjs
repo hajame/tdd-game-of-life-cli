@@ -34,6 +34,17 @@ export class Board {
     return result;
   }
 
+  hasAliveCell() {
+    for (var h = 0; h < this.height; h++) {
+      for (let w = 0; w < this.width; w++) {
+        if (this.board[h][w] == "o") {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
   _emptyBoard() {
     let result = new Array(this.height);
     for (var h = 0; h < this.height; h++) {

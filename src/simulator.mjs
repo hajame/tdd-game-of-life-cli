@@ -21,6 +21,6 @@ export class Simulator {
   }
 
   _noneAlive() {
-    return this.board.pattern.shortForm == "3b$3b$3b!";
+    return !this.board.hasAliveCell();
   }
 }
