@@ -24,4 +24,28 @@ export class Pattern {
     }
     return result;
   }
+
+  toShortForm() {
+    let result = "";
+    for (let a = 0; a < this.pattern.length; a++) {
+      const char = this.pattern[a];
+      if (["!", "$"].includes(char)) {
+        result = result.concat(char);
+        continue;
+      }
+      if (["b", "o"].includes(char)) {
+        let runCount = 1;
+        for (let i = a + 1; i < this.pattern.length; i++) {
+          if (this.pattern[i] == char) {
+            runCount++;
+            a++;
+          } else {
+            break;
+          }
+        }
+        result = result.concat(runCount + char);
+      }
+    }
+    return result;
+  }
 }
