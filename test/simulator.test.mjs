@@ -28,9 +28,15 @@ describe("Simulation test", () => {
     });
   });
   describe("Blinker", () => {
-    it("it oscillates once", () => {
+    it("3x3 Blinker oscillates once", () => {
       simulator = getSimulator(3, 3, "3b$3o$3b!", 1);
       expect(simulator.simulate()).to.equal("x = 3, y = 3\nbob$bob$bob!");
+    });
+    it("3x3 Blinker in 5x5 grid oscillates once", () => {
+      simulator = getSimulator(5, 5, "5b$5b$b3ob$5b$5b!", 1);
+      expect(simulator.simulate()).to.equal(
+        "x = 5, y = 5\n5b$2bo2b$2bo2b$2bo2b$5b!"
+      );
     });
   });
 });

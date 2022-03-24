@@ -43,6 +43,19 @@ export class Board {
     return false;
   }
 
+  toPattern() {
+    let result = "";
+    for (var h = 0; h < this.height; h++) {
+      result = result.concat(this.board[h].join("")).concat("$");
+    }
+    result = result
+      .trim()
+      .substring(0, result.length - 1)
+      .concat("!");
+
+    return new Pattern(result);
+  }
+
   updateCells() {
     let nextBoard = this._emptyBoard();
     for (var h = 0; h < this.height; h++) {
@@ -58,29 +71,16 @@ export class Board {
     this.board = nextBoard;
   }
 
-  toPattern() {
-    let result = "";
-    for (var h = 0; h < this.height; h++) {
-      result = result.concat(this.board[h].join("")).concat("$");
-    }
-    result = result
-      .trim()
-      .substring(0, result.length - 1)
-      .concat("!");
-
-    return new Pattern(result);
-  }
-
   _canBeBorn(x, y) {
     let leftLimit = x > 0 ? x - 1 : 0;
-    let rightLimit = (x = this.width - 1 ? this.width : x + 1);
+    let rightLimit = x == this.width - 1 ? this.width - 1 : x + 1;
     let topLimit = y > 0 ? y - 1 : 0;
-    let bottomLimit = (y = this.height - 1 ? this.height : y + 1);
+    let bottomLimit = y == this.height - 1 ? this.height - 1 : y + 1;
 
     let neighbours = 0;
 
-    for (var h = topLimit; h < bottomLimit; h++) {
-      for (let w = leftLimit; w < rightLimit; w++) {
+    for (var h = topLimit; h <= bottomLimit; h++) {
+      for (var w = leftLimit; w <= rightLimit; w++) {
         if (h == y && w == x) {
           continue;
         }
@@ -94,14 +94,14 @@ export class Board {
 
   _canLive(x, y) {
     let leftLimit = x > 0 ? x - 1 : 0;
-    let rightLimit = (x = this.width - 1 ? this.width : x + 1);
+    let rightLimit = x == this.width - 1 ? this.width - 1 : x + 1;
     let topLimit = y > 0 ? y - 1 : 0;
-    let bottomLimit = (y = this.height - 1 ? this.height : y + 1);
+    let bottomLimit = y == this.height - 1 ? this.height - 1 : y + 1;
 
     let neighbours = 0;
 
-    for (var h = topLimit; h < bottomLimit; h++) {
-      for (let w = leftLimit; w < rightLimit; w++) {
+    for (var h = topLimit; h <= bottomLimit; h++) {
+      for (let w = leftLimit; w <= rightLimit; w++) {
         if (h == y && w == x) {
           continue;
         }
