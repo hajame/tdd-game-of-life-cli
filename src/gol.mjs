@@ -1,6 +1,7 @@
 import fs from "fs";
 import { Simulator } from "./simulator.mjs";
 import { FileParser } from "./fileparser.mjs";
+import { Pattern } from "./pattern.mjs";
 
 let file;
 let iterations = process.argv[3];
@@ -14,7 +15,12 @@ try {
 let parser = new FileParser(file);
 parser.parse();
 
-let simulator = new Simulator(parser.x, parser.y, parser.pattern, iterations);
+let simulator = new Simulator(
+  parser.x,
+  parser.y,
+  new Pattern(parser.pattern),
+  iterations
+);
 console.log(simulator.simulate());
 
 function outputFile() {

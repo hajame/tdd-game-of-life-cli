@@ -1,10 +1,11 @@
 import { expect } from "chai";
 import { Board } from "../src/board.mjs";
+import { Pattern } from "../src/pattern.mjs";
 
 let board;
 
 function getBoard(x, y, pattern) {
-  return new Board(x, y, pattern);
+  return new Board(x, y, new Pattern(pattern));
 }
 
 describe("Board", () => {

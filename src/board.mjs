@@ -4,18 +4,16 @@ export class Board {
   width;
   height;
   board;
-  pattern;
 
   constructor(width, height, pattern) {
     this.width = width;
     this.height = height;
-    this.pattern = new Pattern(pattern);
-    this.board = this.parseBoard();
+    this.board = this.parseBoard(pattern);
   }
 
-  parseBoard() {
+  parseBoard(pattern) {
     let result = this._emptyBoard();
-    let longFormPattern = this.pattern.longForm;
+    let longFormPattern = pattern.longForm;
 
     let y = 0;
     let x = 0;
@@ -58,7 +56,6 @@ export class Board {
       }
     }
     this.board = nextBoard;
-    this.pattern = this.toPattern();
   }
 
   toPattern() {

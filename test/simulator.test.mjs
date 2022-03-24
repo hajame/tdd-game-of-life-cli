@@ -1,10 +1,11 @@
 import { expect } from "chai";
+import { Pattern } from "../src/pattern.mjs";
 import { Simulator } from "../src/simulator.mjs";
 
 let simulator;
 
 function getSimulator(x, y, pattern, iterations) {
-  return new Simulator(x, y, pattern, iterations);
+  return new Simulator(x, y, new Pattern(pattern), iterations);
 }
 
 describe("Simulation test", () => {
