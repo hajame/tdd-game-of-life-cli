@@ -1,17 +1,21 @@
+import { Pattern } from "./pattern.mjs";
+
 export class Board {
   width;
   height;
   board;
+  pattern;
 
   constructor(width, height, pattern) {
     this.width = width;
     this.height = height;
-    this.board = this.parseBoard(pattern);
+    this.pattern = new Pattern(pattern);
+    this.board = this.parseBoard();
   }
 
-  parseBoard(pattern) {
+  parseBoard() {
     let result = this._emptyBoard();
-    let longFormPattern = this.toLongForm(pattern);
+    let longFormPattern = this.pattern.toLongForm();
 
     let y = 0;
     let x = 0;
@@ -35,27 +39,6 @@ export class Board {
     for (var h = 0; h < this.height; h++) {
       result[h] = new Array(this.width);
     }
-    return result;
-  }
-
-  toLongForm(pattern) {
-    let result = "";
-    for (let a = 0; a < pattern.length; a++) {
-      const char = pattern[a];
-      if (char == "!") {
-        result = result.concat(char);
-        break;
-      }
-      if (["$", "b", "o"].includes(char)) {
-        result = result.concat(char);
-        continue;
-      }
-      for (let i = 0; i < parseInt(char); i++) {
-        result = result.concat(pattern[a + 1]);
-      }
-      a++;
-    }
-
     return result;
   }
 }
