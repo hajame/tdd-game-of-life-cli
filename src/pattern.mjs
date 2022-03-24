@@ -1,4 +1,4 @@
-export class RleConverter {
+export class Pattern {
   pattern;
 
   constructor(pattern) {

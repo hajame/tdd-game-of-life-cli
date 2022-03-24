@@ -1,19 +1,19 @@
 import { expect } from "chai";
-import { RleConverter } from "../src/rleConverter.mjs";
+import { Pattern } from "../src/pattern.mjs";
 
-let rleConverter;
+let pattern;
 
-function getRleConverter(pattern) {
-  return new RleConverter(pattern);
+function getPattern(pattern) {
+  return new Pattern(pattern);
 }
 
 describe("RleConverter", () => {
   describe("Convert to long form", () => {
     beforeEach(() => {
-      rleConverter = getRleConverter("3b$3b$3b!");
+      pattern = getPattern("3b$3b$3b!");
     });
     it("output is correct", () => {
-      expect(rleConverter.toLongForm()).to.equal("bbb$bbb$bbb!");
+      expect(pattern.toLongForm()).to.equal("bbb$bbb$bbb!");
     });
   });
 });
