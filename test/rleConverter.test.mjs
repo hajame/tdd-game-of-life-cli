@@ -17,11 +17,13 @@ describe("RleConverter", () => {
     });
   });
   describe("Convert to short form", () => {
-    beforeEach(() => {
-      pattern = getPattern("bbb$bbb$bbb!");
-    });
     it("output is correct", () => {
+      pattern = getPattern("bbb$bbb$bbb!");
       expect(pattern.toShortForm()).to.equal("3b$3b$3b!");
+    });
+    it("ignore run count if just one", () => {
+      pattern = getPattern("bbo$ooo$oob!");
+      expect(pattern.toShortForm()).to.equal("2bo$3o$2ob!");
     });
   });
 });
