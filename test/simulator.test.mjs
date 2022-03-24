@@ -32,11 +32,13 @@ describe("Simulation test", () => {
       simulator = getSimulator(3, 3, "3b$3o$3b!", 1);
       expect(simulator.simulate()).to.equal("x = 3, y = 3\nbob$bob$bob!");
     });
-    it("3x3 Blinker in 5x5 grid oscillates once", () => {
-      simulator = getSimulator(5, 5, "5b$5b$b3ob$5b$5b!", 1);
-      expect(simulator.simulate()).to.equal(
-        "x = 5, y = 5\n5b$2bo2b$2bo2b$2bo2b$5b!"
-      );
+    it("3x3 Blinker oscillates twice", () => {
+      simulator = getSimulator(3, 3, "3b$3o$3b!", 2);
+      expect(simulator.simulate()).to.equal("x = 3, y = 3\n3b$3o$3b!");
+    });
+    it("3x3 Blinker in 5x5 grid oscillates twice", () => {
+      simulator = getSimulator(5, 5, "5b$5b$b3ob$5b$5b!", 2);
+      expect(simulator.simulate()).to.equal("x = 5, y = 5\n5b$5b$b3ob$5b$5b!");
     });
   });
 });
