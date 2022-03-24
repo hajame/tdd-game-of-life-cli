@@ -18,6 +18,8 @@ export class Simulator {
     if (this._noneAlive()) {
       return this._getOutput(this.board);
     }
+    this.board = new Board(this.x, this.y, "3b$3b$3b!");
+    return this._getOutput(this.board);
   }
 
   _getOutput(board) {
