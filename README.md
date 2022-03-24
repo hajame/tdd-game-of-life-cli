@@ -2,10 +2,15 @@
 
 Practising TDD by creating a CLI version of Conway's Game of Life.
 
-The input files are in [RLE format](https://www.conwaylife.com/wiki/Run_Length_Encoded).
+## Usage instructions
 
-```
-npm run gol A.rle 6
-```
+Requires a recent version (12+) of `node.js`. Install dependencies with `npm install`
 
-Will run the simulation for the file `A.rle` for 6 rounds.
+The input files are in [RLE format](https://www.conwaylife.com/wiki/Run_Length_Encoded). `example.rle` contains a [Blinker](https://conwaylife.com/wiki/Blinker).
+
+In project root,
+
+```bash
+# run the simulation for 3 iterations
+npm run gol example.rle 3
+```
