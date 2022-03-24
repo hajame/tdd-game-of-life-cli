@@ -45,6 +45,10 @@ export class Board {
     return false;
   }
 
+  updateCells() {
+    return new Board(this.width, this.height, "3b$3b$3b!");
+  }
+
   _emptyBoard() {
     let result = new Array(this.height);
     for (var h = 0; h < this.height; h++) {

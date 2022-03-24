@@ -18,8 +18,14 @@ export class Simulator {
     if (this._noneAlive()) {
       return this._getOutput(this.board);
     }
-    this.board = new Board(this.x, this.y, "3b$3b$3b!");
+    for (let i = 0; i < this.iterations; i++) {
+      this.board = this._tick();
+    }
     return this._getOutput(this.board);
+  }
+
+  _tick() {
+    return this.board.updateCells();
   }
 
   _getOutput(board) {
