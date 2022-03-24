@@ -41,9 +41,6 @@ export class Board {
   toLongForm(pattern) {
     let result = "";
     for (let a = 0; a < pattern.length; a++) {
-      const element = pattern[a];
-    }
-    for (let a = 0; a < pattern.length; a++) {
       const char = pattern[a];
       if (char == "!") {
         result = result.concat(char);

@@ -11,7 +11,6 @@ describe("RleConverter", () => {
   describe("Convert to long form", () => {
     beforeEach(() => {
       rleConverter = getRleConverter("3b$3b$3b!");
-      rleConverter.parse();
     });
     it("output is correct", () => {
       expect(rleConverter.toLongForm()).to.equal("bbb$bbb$bbb!");
