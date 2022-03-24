@@ -47,4 +47,25 @@ describe("Simulation test", () => {
       expect(simulator.simulate()).to.equal("x = 4, y = 4\n4b$b2ob$b2ob$4b!");
     });
   });
+  describe("Glider", () => {
+    it("5x5 Glider stage 1, 4 steps, moves one row down and one accross", () => {
+      simulator = getSimulator(5, 5, "5b$2bo2b$3bob$b3ob$5b!", 4);
+      expect(simulator.simulate()).to.equal(
+        "x = 5, y = 5\n5b$5b$3bob$4bo$2b3o!"
+      );
+    });
+
+    it("5x5 Glider stage 2, 1 steps", () => {
+      simulator = getSimulator(5, 5, "5b$bobob$2b2ob$2bo2b$5b!", 1);
+      expect(simulator.simulate()).to.equal(
+        "x = 5, y = 5\n5b$3bob$bobob$2b2ob$5b!"
+      );
+    });
+    it("5x5 Glider stage 2, 3 steps", () => {
+      simulator = getSimulator(5, 5, "5b$bobob$2b2ob$2bo2b$5b!", 3);
+      expect(simulator.simulate()).to.equal(
+        "x = 5, y = 5\n5b$3bob$4bo$2b3o$5b!"
+      );
+    });
+  });
 });
