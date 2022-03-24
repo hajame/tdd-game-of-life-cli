@@ -16,8 +16,12 @@ export class Simulator {
 
   simulate() {
     if (this._noneAlive()) {
-      return `x = ${this.x}, y = ${this.y}\n${this.board.pattern.shortForm}`;
+      return this._getOutput(this.board);
     }
+  }
+
+  _getOutput(board) {
+    return `x = ${this.x}, y = ${this.y}\n${board.pattern.shortForm}`;
   }
 
   _noneAlive() {
