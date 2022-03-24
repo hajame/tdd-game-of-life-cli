@@ -1,11 +1,15 @@
 export class Pattern {
   pattern;
+  shortForm;
+  longForm;
 
   constructor(pattern) {
     this.pattern = pattern;
+    this.longForm = this._toLongForm();
+    this.shortForm = this._toShortForm();
   }
 
-  toLongForm() {
+  _toLongForm() {
     let result = "";
     for (let a = 0; a < this.pattern.length; a++) {
       const char = this.pattern[a];
@@ -25,18 +29,18 @@ export class Pattern {
     return result;
   }
 
-  toShortForm() {
+  _toShortForm() {
     let result = "";
-    for (let a = 0; a < this.pattern.length; a++) {
-      const char = this.pattern[a];
+    for (let a = 0; a < this.longForm.length; a++) {
+      const char = this.longForm[a];
       if (["!", "$"].includes(char)) {
         result = result.concat(char);
         continue;
       }
       if (["b", "o"].includes(char)) {
         let runCount = 1;
-        for (let i = a + 1; i < this.pattern.length; i++) {
-          if (this.pattern[i] == char) {
+        for (let i = a + 1; i < this.longForm.length; i++) {
+          if (this.longForm[i] == char) {
             runCount++;
             a++;
           } else {

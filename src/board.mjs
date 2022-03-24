@@ -15,7 +15,7 @@ export class Board {
 
   parseBoard() {
     let result = this._emptyBoard();
-    let longFormPattern = this.pattern.toLongForm();
+    let longFormPattern = this.pattern.longForm;
 
     let y = 0;
     let x = 0;
