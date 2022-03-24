@@ -25,7 +25,7 @@ export class Simulator {
   }
 
   _getOutput(board) {
-    return `x = ${this.x}, y = ${this.y}\n${board.pattern.shortForm}`;
+    return `x = ${this.x}, y = ${this.y}\n${board.toPattern().shortForm}`;
   }
 
   _noneAlive() {

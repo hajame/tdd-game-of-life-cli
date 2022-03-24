@@ -57,9 +57,21 @@ export class Board {
         }
       }
     }
-    console.log(nextBoard);
+    this.board = nextBoard;
+    this.pattern = this.toPattern();
+  }
 
-    this.pattern = new Pattern("3b$3b$3b!");
+  toPattern() {
+    let result = "";
+    for (var h = 0; h < this.height; h++) {
+      result = result.concat(this.board[h].join("")).concat("$");
+    }
+    result = result
+      .trim()
+      .substring(0, result.length - 1)
+      .concat("!");
+
+    return new Pattern(result);
   }
 
   _canBeBorn(x, y) {
