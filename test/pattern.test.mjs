@@ -7,7 +7,7 @@ function getPattern(pattern) {
   return new Pattern(pattern);
 }
 
-describe("RleConverter", () => {
+describe("Pattern", () => {
   describe("Convert to long form", () => {
     beforeEach(() => {
       pattern = getPattern("3b$3b$3b!");
