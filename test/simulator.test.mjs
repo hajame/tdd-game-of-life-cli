@@ -41,4 +41,10 @@ describe("Simulation test", () => {
       expect(simulator.simulate()).to.equal("x = 5, y = 5\n5b$5b$b3ob$5b$5b!");
     });
   });
+  describe("Block", () => {
+    it("4x4 Block stays", () => {
+      simulator = getSimulator(4, 4, "4b$b2ob$b2ob$4b!", 3);
+      expect(simulator.simulate()).to.equal("x = 4, y = 4\n4b$b2ob$b2ob$4b!");
+    });
+  });
 });
