@@ -25,6 +25,14 @@ describe("Pattern", () => {
       pattern = getPattern("bbo$ooo$oob!");
       expect(pattern.shortForm).to.equal("2bo$3o$2ob!");
     });
+    it("over 70 chars gets split to two lines", () => {
+      pattern = getPattern(
+        "bobobobobo$bobobobobo$bobobobobo$bobobobobo$bobobobobo$bobobobobo$bobobobobo$bobobobobo!"
+      );
+      expect(pattern.shortForm).to.equal(
+        "bobobobobo$bobobobobo$bobobobobo$bobobobobo$bobobobobo$bobobobobo$bobo\nbobobo$bobobobobo!"
+      );
+    });
   });
   describe("Convert to long form and back to short form", () => {
     it("funny short form, output is correct", () => {

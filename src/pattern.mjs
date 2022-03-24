@@ -51,6 +51,11 @@ export class Pattern {
         result = result.concat(runCount + char);
       }
     }
+    //result = this._addLineBreaks(result, 70);
     return result;
   }
+
+  // _addLineBreaks(string, charLimit) {
+  //   return string.match(`/.{1,${charLimit}}/g`).join("\n");
+  // }
 }
