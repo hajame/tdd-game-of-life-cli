@@ -72,6 +72,15 @@ export class Board {
   }
 
   _canBeBorn(x, y) {
+    return this._countNeighbours(x, y) == 3;
+  }
+
+  _canLive(x, y) {
+    const neighbours = this._countNeighbours(x, y);
+    return neighbours == 2 || neighbours == 3;
+  }
+
+  _countNeighbours(x, y) {
     let leftLimit = x > 0 ? x - 1 : 0;
     let rightLimit = x == this.width - 1 ? this.width - 1 : x + 1;
     let topLimit = y > 0 ? y - 1 : 0;
@@ -89,28 +98,7 @@ export class Board {
         }
       }
     }
-    return neighbours == 3;
-  }
-
-  _canLive(x, y) {
-    let leftLimit = x > 0 ? x - 1 : 0;
-    let rightLimit = x == this.width - 1 ? this.width - 1 : x + 1;
-    let topLimit = y > 0 ? y - 1 : 0;
-    let bottomLimit = y == this.height - 1 ? this.height - 1 : y + 1;
-
-    let neighbours = 0;
-
-    for (var h = topLimit; h <= bottomLimit; h++) {
-      for (let w = leftLimit; w <= rightLimit; w++) {
-        if (h == y && w == x) {
-          continue;
-        }
-        if (this.board[h][w] == "o") {
-          neighbours++;
-        }
-      }
-    }
-    return neighbours == 2 || neighbours == 3;
+    return neighbours;
   }
 
   _emptyBoard() {
