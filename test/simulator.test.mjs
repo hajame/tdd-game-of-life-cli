@@ -16,9 +16,9 @@ describe("Simulation test", () => {
       expect(simulator.simulate()).to.equal("x = 3, y = 3\n3b$3b$3b!");
     });
   });
-  xdescribe("When a single cell is active", () => {
+  describe("When a single cell is active", () => {
     beforeEach(() => {
-      simulator = getSimulator(3, 3, "3b$3b$2bo!", 2);
+      simulator = getSimulator(3, 3, "3b$3b$2bo!", 1);
     });
     it("all cells are dead", () => {
       expect(simulator.simulate()).to.equal("x = 3, y = 3\n3b$3b$3b!");
