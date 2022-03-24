@@ -35,10 +35,12 @@ export class Board {
 
   _validateDimensions(width, height) {
     if (width != this.width) {
-      throw `ERROR: Incorrect amount of cells on row ${height + 1}`;
+      console.error(`ERROR: Incorrect amount of cells on row ${height + 1}`);
+      process.exit(1);
     }
     if (height > this.height - 2) {
-      throw `ERROR: File contains too many rows`;
+      console.error(`File contains too many rows`);
+      process.exit(1);
     }
   }
 

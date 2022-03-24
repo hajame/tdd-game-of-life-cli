@@ -22,11 +22,7 @@ let simulator = new Simulator(
   iterations
 );
 
-try {
-  console.log(simulator.simulate());
-} catch (error) {
-  console.error(error);
-}
+console.log(simulator.simulate());
 
 function outputFile() {
   fs.writeFile("output.rle", simulator.simulate(), "utf8", function (err) {
