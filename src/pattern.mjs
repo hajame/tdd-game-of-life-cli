@@ -43,6 +43,7 @@ export class Pattern {
             break;
           }
         }
+        runCount = runCount > 1 ? runCount : "";
         result = result.concat(runCount + char);
       }
     }
