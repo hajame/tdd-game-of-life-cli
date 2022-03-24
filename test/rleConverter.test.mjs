@@ -16,4 +16,12 @@ describe("RleConverter", () => {
       expect(pattern.toLongForm()).to.equal("bbb$bbb$bbb!");
     });
   });
+  describe("Convert to short form", () => {
+    beforeEach(() => {
+      pattern = getPattern("bbb$bbb$bbb!");
+    });
+    it("output is correct", () => {
+      expect(pattern.toShortForm()).to.equal("3b$3b$3b!");
+    });
+  });
 });
