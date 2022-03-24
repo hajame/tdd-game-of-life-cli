@@ -1,5 +1,4 @@
 import { Board } from "./board.mjs";
-import { Pattern } from "./pattern.mjs";
 
 export class Simulator {
   x;

@@ -18,11 +18,19 @@ describe("Simulation test", () => {
     });
   });
   describe("When a single cell is active", () => {
-    beforeEach(() => {
+    it("it dies", () => {
       simulator = getSimulator(3, 3, "3b$3b$2bo!", 1);
-    });
-    it("all cells are dead", () => {
       expect(simulator.simulate()).to.equal("x = 3, y = 3\n3b$3b$3b!");
+    });
+    it("it stays dead", () => {
+      simulator = getSimulator(3, 3, "3b$3b$2bo!", 2);
+      expect(simulator.simulate()).to.equal("x = 3, y = 3\n3b$3b$3b!");
+    });
+  });
+  describe("Blinker", () => {
+    it("it oscillates once", () => {
+      simulator = getSimulator(3, 3, "3b$3o$3b!", 1);
+      expect(simulator.simulate()).to.equal("x = 3, y = 3\nbob$bob$bob!");
     });
   });
 });
