@@ -19,6 +19,7 @@ export class Board {
     let x = 0;
     for (const char of longFormPattern) {
       if (char == "$") {
+        this._validateDimensions(x, y);
         y++;
         x = 0;
         continue;
@@ -30,6 +31,15 @@ export class Board {
       x++;
     }
     return result;
+  }
+
+  _validateDimensions(width, height) {
+    if (width != this.width) {
+      throw `ERROR: Incorrect amount of cells on row ${height + 1}`;
+    }
+    if (height > this.height - 2) {
+      throw `ERROR: File contains too many rows`;
+    }
   }
 
   hasAliveCell() {

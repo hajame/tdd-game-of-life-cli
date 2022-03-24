@@ -21,7 +21,12 @@ let simulator = new Simulator(
   new Pattern(parser.pattern),
   iterations
 );
-console.log(simulator.simulate());
+
+try {
+  console.log(simulator.simulate());
+} catch (error) {
+  console.error(error);
+}
 
 function outputFile() {
   fs.writeFile("output.rle", simulator.simulate(), "utf8", function (err) {
