@@ -46,7 +46,62 @@ export class Board {
   }
 
   updateCells() {
-    return new Board(this.width, this.height, "3b$3b$3b!");
+    let nextBoard = this._emptyBoard();
+    for (var h = 0; h < this.height; h++) {
+      for (let w = 0; w < this.width; w++) {
+        if (this.board[h][w] == "b") {
+          nextBoard[h][w] = this._canBeBorn(w, h) ? "o" : "b";
+        }
+        if (this.board[h][w] == "o") {
+          nextBoard[h][w] = this._canLive(w, h) ? "o" : "b";
+        }
+      }
+    }
+    console.log(nextBoard);
+
+    this.pattern = new Pattern("3b$3b$3b!");
+  }
+
+  _canBeBorn(x, y) {
+    let leftLimit = x > 0 ? x - 1 : 0;
+    let rightLimit = (x = this.width - 1 ? this.width : x + 1);
+    let topLimit = y > 0 ? y - 1 : 0;
+    let bottomLimit = (y = this.height - 1 ? this.height : y + 1);
+
+    let neighbours = 0;
+
+    for (var h = topLimit; h < bottomLimit; h++) {
+      for (let w = leftLimit; w < rightLimit; w++) {
+        if (h == y && w == x) {
+          continue;
+        }
+        if (this.board[h][w] == "o") {
+          neighbours++;
+        }
+      }
+    }
+    return neighbours == 3;
+  }
+
+  _canLive(x, y) {
+    let leftLimit = x > 0 ? x - 1 : 0;
+    let rightLimit = (x = this.width - 1 ? this.width : x + 1);
+    let topLimit = y > 0 ? y - 1 : 0;
+    let bottomLimit = (y = this.height - 1 ? this.height : y + 1);
+
+    let neighbours = 0;
+
+    for (var h = topLimit; h < bottomLimit; h++) {
+      for (let w = leftLimit; w < rightLimit; w++) {
+        if (h == y && w == x) {
+          continue;
+        }
+        if (this.board[h][w] == "o") {
+          neighbours++;
+        }
+      }
+    }
+    return neighbours == 2 || neighbours == 3;
   }
 
   _emptyBoard() {

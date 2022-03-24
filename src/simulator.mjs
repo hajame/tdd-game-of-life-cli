@@ -19,13 +19,9 @@ export class Simulator {
       return this._getOutput(this.board);
     }
     for (let i = 0; i < this.iterations; i++) {
-      this.board = this._tick();
+      this.board.updateCells();
     }
     return this._getOutput(this.board);
-  }
-
-  _tick() {
-    return this.board.updateCells();
   }
 
   _getOutput(board) {
